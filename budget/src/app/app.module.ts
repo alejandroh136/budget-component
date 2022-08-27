@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TemplateComponent } from './template/template.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import { BudgetItemComponent } from './budget-item/budget-item.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { BudgetItemComponent } from './budget-item/budget-item.component';
     BudgetItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[AppRoutingModule]
 })
 export class AppModule { }
