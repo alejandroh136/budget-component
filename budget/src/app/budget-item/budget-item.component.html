@@ -1,1 +1,8 @@
-<p>budget-item works!</p>
+<h3>
+    {{budget.monthlyLimit}}
+</h3>
+<p> {{ budget.warningLimit }} </p>
+<div id="progressbar">
+    <div id="progress" [ngStyle]="{'width':percent}"></div>
+    <!--<div id="progress" style="width:100%;"></div>-->
+</div>
