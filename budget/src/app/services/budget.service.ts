@@ -19,15 +19,22 @@ headers = headers.set('Content-Type', 'application/json');
   providedIn: 'root'
 })
 export class BudgetService {
+  private arrayLength = 0;
   private apiUrl = "http://localhost:5000/tasks";
   constructor(private http:HttpClient) { }
   getBudgetList(customerId:number): Observable<Budget[]>{
     return this.http.get<Budget[]>(this.apiUrl);
   }
   deleteBudget(budget:Budget){
-    return this.http.delete(this.apiUrl+'/'+budget.budget_id,{observe:'response'});
+    return this.http.delete(this.apiUrl+'/'+budget.id,{observe:'response'});
   }
   addNewBudget(budget:Budget){
     return this.http.post(this.apiUrl, budget,{observe:'response'});
+  }
+  updateLength(len:number){
+    this.arrayLength = len;
+  }
+  getNextId(){
+    return this.arrayLength;
   }
 }

@@ -1,5 +1,5 @@
 export interface Budget{
-    budget_id:number;
+    id:number;
     customerId:number;
     accountType:string;
     monthlyLimit:number;

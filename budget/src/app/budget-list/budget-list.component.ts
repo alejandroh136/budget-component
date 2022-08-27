@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BudgetService } from '../services/budget.service';
 import { Budget } from '../services/models/budget';
 @Component({
@@ -8,7 +9,7 @@ import { Budget } from '../services/models/budget';
 })
 export class BudgetListComponent implements OnInit {
   budgetList : Budget[];
-  constructor(private budgetService: BudgetService) {
+  constructor(private budgetService: BudgetService, private router:Router) {
     this.budgetList = [];
    }
 
@@ -16,7 +17,10 @@ export class BudgetListComponent implements OnInit {
     this.budgetService.getBudgetList(1).subscribe((response) =>{
       console.log(response);
       this.budgetList = response;
+      this.budgetService.updateLength(this.budgetList.length);
     })
   }
-
+  onAddNew(){
+    this.router.navigate(['budget/addnew']);
+  }
 }
