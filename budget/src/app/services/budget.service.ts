@@ -32,7 +32,7 @@ export class BudgetService {
     return this.http.post(this.apiUrl, budget,{observe:'response'});
   }
   updateLength(len:number){
-    this.arrayLength = len;
+    this.arrayLength = len+1;
   }
   getNextId(){
     return this.arrayLength;

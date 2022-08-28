@@ -1,8 +1,34 @@
-<h3>
-    {{budget.monthlyLimit}}
+<div *ngIf="!enableEdit" class="budget-box">
+<h3 style="display: inline-block;">
+    Monthly Budget: {{budget.monthlyLimit}}
 </h3>
-<p> {{ budget.warningLimit }} </p>
+<button class="btn btn-block;" style="margin-left: 40%; width: 100px;" (click)="onClickEdit()">edit</button>
+<p> Warning Set: {{ budget.warningLimit }} </p>
+<p> Remaining: {{budget.remainder}}</p>
 <div id="progressbar">
-    <div id="progress" [ngStyle]="{'width':percent}"></div>
+    <div id="progress" [ngStyle]="{'width':percentS,'background-color':colorS}"></div>
     <!--<div id="progress" style="width:100%;"></div>-->
+</div>
+</div>
+
+<div *ngIf="enableEdit" class="form-input" class="budget-box">
+    
+        <div style="padding-top: 100px;">
+            <label style="display:inline-block; width:200px;">Monthly Budget</label>
+            <input type="text" 
+            name="monthly" 
+            id="monthly" 
+            placeholder="type amount" [(ngModel)]="monthlyAmount"/>
+        </div>
+        <div>
+            <label style="display:inline-block; width:200px;">Warn Me When</label>
+            <input
+            name="warning"
+            id="warning"
+            placeholder="type amount"
+            [(ngModel)]="warningLimit"
+            />
+        </div>
+        <button class="btn btn-block" (click)="onClickSave()">save changes</button>
+        <button class="btn btn-block" (click)="onClickDelete()">delete budget</button>
 </div>

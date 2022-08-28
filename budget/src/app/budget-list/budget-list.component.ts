@@ -5,7 +5,7 @@ import { Budget } from '../services/models/budget';
 @Component({
   selector: 'app-budget-list',
   templateUrl: './budget-list.component.html',
-  styleUrls: ['./budget-list.component.css']
+  styleUrls: ['./budget-list.component.css','../app.component.css']
 })
 export class BudgetListComponent implements OnInit {
   budgetList : Budget[];
@@ -22,5 +22,15 @@ export class BudgetListComponent implements OnInit {
   }
   onAddNew(){
     this.router.navigate(['budget/addnew']);
+  }
+  onEmitChanges(budget:Budget){
+    console.log(budget);
+    
+  }
+  onEmitDelete(budget:Budget){
+    this.budgetService.deleteBudget(budget).subscribe((res)=>{
+      console.log(res);
+    });
+    this.ngOnInit();
   }
 }

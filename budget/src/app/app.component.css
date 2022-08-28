@@ -14,7 +14,18 @@ h1,
   .spacer {
     flex: 1;
   }
-
+  .form-input{
+    min-height: 500px;
+    font-size: 1.2em;
+  }
+  .form-input > input{
+    font-size: 1.2;
+    
+  }
+  .form-input > button{
+    margin-left: 200px;
+    width: 150px;
+  }
   .toolbar {
     position: absolute;
     top: 0;

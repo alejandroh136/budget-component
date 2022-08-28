@@ -3,6 +3,8 @@
 <app-budget-item
 *ngFor="let budget of budgetList"
 [budget]="budget"
+(editBudgetEvent)="onEmitChanges(budget)"
+(deleteBudgetEvent)="onEmitDelete(budget)"
 >
     
 </app-budget-item>

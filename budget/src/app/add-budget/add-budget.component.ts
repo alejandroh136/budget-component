@@ -6,15 +6,17 @@ import { Budget } from '../services/models/budget';
 @Component({
   selector: 'app-add-budget',
   templateUrl: './add-budget.component.html',
-  styleUrls: ['./add-budget.component.css']
+  styleUrls: ['../app.component.css']
 })
 export class AddBudgetComponent implements OnInit {
   monthlyAmount:number = 0;
   warningLimit:number = 0;
+  //enableEdit = false;
   constructor(private budgetService: BudgetService, private router:Router) { }
 
   ngOnInit(): void {
   }
+
   onClickSubmit(){
 
     let budget:Budget = {id:this.budgetService.getNextId(),customerId:1,accountType:"checking",monthlyLimit:this.monthlyAmount,warningLimit:this.warningLimit, remainder:this.monthlyAmount};
@@ -22,5 +24,6 @@ export class AddBudgetComponent implements OnInit {
     this.budgetService.addNewBudget(budget).subscribe((res)=>{
       console.log(res)
     });
+    this.router.navigate(['budget']);
   }
 }

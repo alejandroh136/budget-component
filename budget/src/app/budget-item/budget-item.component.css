@@ -6,9 +6,14 @@
   }
   
   #progressbar>#progress {
-    background-color: green;
+    background-color: lightgreen;
     width: 10%;
     /* Adjust with JavaScript */
     height: 20px;
     border-radius: 10px;
   }
+.budget-box{
+  border: 1px solid steelblue;
+  padding: 1em;
+  margin-bottom: 15px;
+}
